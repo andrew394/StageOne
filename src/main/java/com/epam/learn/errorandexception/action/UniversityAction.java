@@ -13,13 +13,13 @@ public class UniversityAction {
         int countScore = 0;
         Map<Subject, List<Integer>> subjectMap = student.getSubjectScoreMap();
         if (subjectMap == null || subjectMap.isEmpty()) {
-            throw new StudentException("Отсутсвие предметов у студента " + student.getSurname());
+            throw new StudentException("Student " + student.getSurname() + " doesn't have subjects");
         }
         for(Map.Entry<Subject, List<Integer>> entry : subjectMap.entrySet()) {
             List<Integer> value = entry.getValue();
             for (Integer score: value) {
                 if (score < 0 || score > 10) {
-                    throw new SubjectException("Оценка ниже 0 или выше 10 у студента " + student.getSurname());
+                    throw new SubjectException("Student " + student.getSurname() + " has score below 0 or above 10");
                 }
                 sum += score;
             }
@@ -34,12 +34,12 @@ public class UniversityAction {
         int countScoreOnSubject = 0;
         List<Student> studentGroupList = group.getStudents();
         if (studentGroupList == null || studentGroupList.isEmpty()) {
-            throw new GroupException("Отсутствие студентов в группе " + group.getGroupNameType());
+            throw new GroupException("There are no students in the group " + group.getGroupNameType());
         }
         for (Student student : studentGroupList) {
             Map<Subject, List<Integer>> subjectMap = student.getSubjectScoreMap();
             if (subjectMap == null || subjectMap.isEmpty()) {
-                throw new StudentException("Отсутсвие предметов у студента " + student.getSurname());
+                throw new StudentException("Student " + student.getSurname() + " doesn't have subjects");
             }
             for(Map.Entry<Subject, List<Integer>> entry : subjectMap.entrySet()) {
                 Subject key = entry.getKey();
@@ -47,7 +47,7 @@ public class UniversityAction {
                 if (key.equals(subject)) {
                     for (Integer score: value) {
                         if (score < 0 || score > 10) {
-                            throw new SubjectException("Оценка ниже 0 или выше 10 у студента " + student.getSurname());
+                            throw new SubjectException("Student " + student.getSurname() + " has score below 0 or above 10");
                         }
                         sumScoreInGroup += score;
                     }
@@ -64,17 +64,17 @@ public class UniversityAction {
         int countScoreOnSubject = 0;
         List<Group> groupList = faculty.getGroups();
         if (groupList == null || groupList.isEmpty()) {
-            throw new FacultyException("Отсутствие групп на факультете " + faculty.getFacultyNameType());
+            throw new FacultyException("There are no groups at the faculty " + faculty.getFacultyNameType());
         }
         for (Group group : groupList) {
             List<Student> studentGroupList = group.getStudents();
             if (studentGroupList == null || studentGroupList.isEmpty()) {
-                throw new GroupException("Отсутствие студентов в группе " + group.getGroupNameType());
+                throw new GroupException("There are no students in the group " + group.getGroupNameType());
             }
             for (Student student : studentGroupList) {
                 Map<Subject, List<Integer>> subjectMap = student.getSubjectScoreMap();
                 if (subjectMap == null || subjectMap.isEmpty()) {
-                    throw new StudentException("Отсутсвие предметов у студента " + student.getSurname());
+                    throw new StudentException("Student " + student.getSurname() + " doesn't have subjects");
                 }
                 for (Map.Entry<Subject, List<Integer>> entry : subjectMap.entrySet()) {
                     Subject key = entry.getKey();
@@ -82,7 +82,7 @@ public class UniversityAction {
                     if (key.equals(subject)) {
                         for (Integer score: value) {
                             if (score < 0 || score > 10) {
-                                throw new SubjectException("Оценка ниже 0 или выше 10 у студента " + student.getSurname());
+                                throw new SubjectException("Student " + student.getSurname() + " has score below 0 or above 10");
                             }
                             sumScoreInFaculty += score;
                         }
@@ -100,22 +100,22 @@ public class UniversityAction {
         int countScoreOnSubject = 0;
         List<Faculty> facultyList = university.getFaculties();
         if (facultyList == null || facultyList.isEmpty()) {
-            throw new UniversityException("Отсутствие факультетов в университете");
+            throw new UniversityException("There are no faculties at the university");
         }
         for (Faculty faculty : facultyList) {
             List<Group> groupList = faculty.getGroups();
             if (groupList == null || groupList.isEmpty()) {
-                throw new FacultyException("Отсутствие групп на факультете " + faculty.getFacultyNameType());
+                throw new FacultyException("There are no groups at the faculty " + faculty.getFacultyNameType());
             }
             for (Group group : groupList) {
                 List<Student> studentGroupList = group.getStudents();
                 if (studentGroupList == null || studentGroupList.isEmpty()) {
-                    throw new GroupException("Отсутствие студентов в группе " + group.getGroupNameType());
+                    throw new GroupException("There are no students in the group " + group.getGroupNameType());
                 }
                 for (Student student : studentGroupList) {
                     Map<Subject, List<Integer>> subjectMap = student.getSubjectScoreMap();
                     if (subjectMap == null || subjectMap.isEmpty()) {
-                        throw new StudentException("Отсутсвие предметов у студента " + student.getSurname());
+                        throw new StudentException("Student " + student.getSurname() + " doesn't have subjects");
                     }
                     for (Map.Entry<Subject, List<Integer>> entry : subjectMap.entrySet()) {
                         Subject key = entry.getKey();
@@ -123,7 +123,7 @@ public class UniversityAction {
                         if (key.equals(subject)) {
                             for (Integer score: value) {
                                 if (score < 0 || score > 10) {
-                                    throw new SubjectException("Оценка ниже 0 или выше 10 у студента " + student.getSurname());
+                                    throw new SubjectException("Student " + student.getSurname() + " has score below 0 or above 10");
                                 }
                                 sumScoreInUniversity += score;
                             }
