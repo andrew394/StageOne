@@ -34,8 +34,6 @@ public class CarThread extends Thread {
 
     @Override
     public String toString() {
-        return "CarThread{" +
-                "model='" + model + '\'' +
-                '}';
+        return "CarThread{model='" + model + "'}";
     }
 }
