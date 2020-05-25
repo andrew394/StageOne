@@ -91,95 +91,95 @@ public class CloudPricingCalculatorPage extends AbstractPage {
         super(driver);
     }
 
-    public CloudPricingCalculatorPage newForFrame() {
+    public CloudPricingCalculatorPage switchFrame() {
         driver.switchTo().frame(iframe).switchTo().frame(myFrame);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForNumberOfInstances(String number) {
+    public CloudPricingCalculatorPage addNumberOfInstances(String number) {
         numberOfInstances.sendKeys(number);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForOperatingSystem() {
+    public CloudPricingCalculatorPage chooseOperatingSystem() {
         operatingSystemButton.click();
         clickAsJavascriptExecutor(selectedOperatingSystem);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForVMClass() {
+    public CloudPricingCalculatorPage chooseVMClass() {
         clickAsJavascriptExecutor(vMClassButton);
         clickAsJavascriptExecutor(selectedVMClass);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForInstanceType() {
+    public CloudPricingCalculatorPage chooseInstanceType() {
         clickAsJavascriptExecutor(instanceTypeButton);
         clickAsJavascriptExecutor(selectedInstanceType);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForAddGPUs() {
+    public CloudPricingCalculatorPage chooseAddGPUs() {
         clickAsJavascriptExecutor(addGPUsBox);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForNumberOfGPUs() {
+    public CloudPricingCalculatorPage chooseNumberOfGPUs() {
         clickAsJavascriptExecutor(numberOfGPUsButton);
         clickAsJavascriptExecutor(selectedNumberOfGPUs);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForGPUType() {
+    public CloudPricingCalculatorPage chooseGPUType() {
         clickAsJavascriptExecutor(GPUTypeButton);
         clickAsJavascriptExecutor(selectedGPUType);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForLocalSSD() {
+    public CloudPricingCalculatorPage chooseLocalSSD() {
         clickAsJavascriptExecutor(localSSDButton);
         clickAsJavascriptExecutor(selectedLocalSSD);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForDatacenterLocation() {
+    public CloudPricingCalculatorPage chooseDatacenterLocation() {
         clickAsJavascriptExecutor(datacenterLocationButton);
         clickAsJavascriptExecutor(selectedDatacenterLocation);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForCommitedUsage() {
+    public CloudPricingCalculatorPage chooseCommitedUsage() {
         clickAsJavascriptExecutor(commitedUsageButton);
         clickAsJavascriptExecutor(selectedCommitedUsage);
         return this;
     }
 
-    public CloudPricingCalculatorPage newForAddToEstimate() {
+    public CloudPricingCalculatorPage clickOnAddToEstimate() {
         clickAsJavascriptExecutor(addToEstimateButton);
         return this;
     }
 
-    public String findEstimateVMClass() {
+    public String getEstimateVMClass() {
         return estimateVMClass.getText();
     }
 
-    public String findEstimateInstanceType() {
+    public String getEstimateInstanceType() {
         return estimateInstanceType.getText();
     }
 
-    public String findEstimateRegion() {
+    public String getEstimateRegion() {
         return estimateRegion.getText();
     }
 
-    public String findEstimateLocalSSD() {
+    public String getEstimateLocalSSD() {
         return estimateLocalSSD.getText();
     }
 
-    public String findEstimateCommitmentTerm() {
+    public String getEstimateCommitmentTerm() {
         return estimateCommitmentTerm.getText();
     }
 
-    public String findTotalEstimatedCost() {
+    public String getTotalEstimatedCost() {
         return totalEstimatedCost.getText();
     }
 }

@@ -28,9 +28,9 @@ public class WebDriverPastebinCreateTest {
     public void testCreatePaste() {
         new PastebinHomePage(driver)
                 .openPage()
-                .newForCode(CODE)
-                .newForPasteExpiration()
-                .newForPasteName(PASTE_NAME)
-                .createForNewPaste();
+                .addCode(CODE)
+                .choosePasteExpiration()
+                .addPasteName(PASTE_NAME)
+                .createNewPaste();
     }
 }

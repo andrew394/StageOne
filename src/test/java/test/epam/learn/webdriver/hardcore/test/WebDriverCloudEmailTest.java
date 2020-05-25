@@ -2,13 +2,14 @@ package test.epam.learn.webdriver.hardcore.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import test.epam.learn.webdriver.hardcore.page.CloudHomePage;
-import test.epam.learn.webdriver.hardcore.page.TenMinuteMailHomePage;
 import test.epam.learn.webdriver.hardcore.page.CloudPricingCalculatorPage;
+import test.epam.learn.webdriver.hardcore.page.TenMinuteMailHomePage;
+
+import static org.testng.Assert.assertTrue;
 
 public class WebDriverCloudEmailTest {
 
@@ -25,22 +26,22 @@ public class WebDriverCloudEmailTest {
         tenMinuteMailHomePage = new TenMinuteMailHomePage(driver);
         new CloudHomePage(driver)
                 .openPage()
-                .newForSearchBox(term)
+                .enterTermInTneSearchBox(term)
                 .searchForTerm()
                 .openGoogleCloudCalculatorLink()
-                .newForFrame()
-                .newForNumberOfInstances(number)
-                .newForOperatingSystem()
-                .newForVMClass()
-                .newForInstanceType()
-                .newForAddGPUs()
-                .newForNumberOfGPUs()
-                .newForGPUType()
-                .newForLocalSSD()
-                .newForDatacenterLocation()
-                .newForCommitedUsage()
-                .newForAddToEstimate()
-                .newForEmailEstimate();
+                .switchFrame()
+                .addNumberOfInstances(number)
+                .chooseOperatingSystem()
+                .chooseVMClass()
+                .chooseInstanceType()
+                .chooseAddGPUs()
+                .chooseNumberOfGPUs()
+                .chooseGPUType()
+                .chooseLocalSSD()
+                .chooseDatacenterLocation()
+                .chooseCommitedUsage()
+                .clickAddToEstimate()
+                .clickOnEmailEstimate();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -53,21 +54,21 @@ public class WebDriverCloudEmailTest {
     public void testTotalEstimatedCostFromEmail() {
         tenMinuteMailHomePage
                 .openTenMinuteMailHomePage();
-        String email = tenMinuteMailHomePage.findEmailAddress();
+        String email = tenMinuteMailHomePage.getEmailAddress();
         cloudPricingCalculatorPage
-                .newForFindFirstPage()
-                .newForFrame()
-                .newForEmailPaste(email)
-                .newForSendEmail()
-                .newForChoicePage()
-                .newForOpeningMail();
-        String totalEstimatedCostFromEmail = tenMinuteMailHomePage.findTotalEstimatedCostFromMail();
+                .switchToFindFirstWindowOpened()
+                .switchFrame()
+                .pasteEmailFromTenMinuteMail(email)
+                .clickOnSendEmail()
+                .switchToNewWindowOpened()
+                .clickToOpenMail();
+        String totalEstimatedCostFromEmail = tenMinuteMailHomePage.getTotalEstimatedCostFromMail();
         cloudPricingCalculatorPage
-                .newForFindFirstPage()
-                .newForFrame()
-                .findTotalEstimatedCost();
-        String totalEstimatedCost = cloudPricingCalculatorPage.findTotalEstimatedCost();
+                .switchToFindFirstWindowOpened()
+                .switchFrame()
+                .getTotalEstimatedCost();
+        String totalEstimatedCost = cloudPricingCalculatorPage.getTotalEstimatedCost();
 
-        Assert.assertTrue(totalEstimatedCost.contains(totalEstimatedCostFromEmail));
+        assertTrue(totalEstimatedCost.contains(totalEstimatedCostFromEmail));
     }
 }

@@ -2,14 +2,16 @@ package test.epam.learn.webdriver.bringiton.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import test.epam.learn.webdriver.bringiton.page.PastebinHomePage;
+import test.epam.learn.webdriver.bringiton.page.PastebinPastePage;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.testng.Assert.assertTrue;
 
 public class WebDriverPastebinSavePasteTest {
 
@@ -23,10 +25,18 @@ public class WebDriverPastebinSavePasteTest {
             "git push origin master --force"
     );
     private WebDriver driver;
+    private PastebinPastePage pastebinPastePage;
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetUp() {
         driver = new ChromeDriver();
+        pastebinPastePage = new PastebinHomePage(driver)
+                .openPage()
+                .addCode(CODE)
+                .chooseSyntaxHighlighting()
+                .choosePasteExpiration()
+                .addPasteName(PASTE_NAME)
+                .createNewPaste();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -37,40 +47,16 @@ public class WebDriverPastebinSavePasteTest {
 
     @Test
     public void testPasteNameCorresponds() {
-        boolean pasteNameCorresponds = new PastebinHomePage(driver)
-                .openPage()
-                .newForCode(CODE)
-                .newForSyntaxHighlighting()
-                .newForPasteExpiration()
-                .newForPasteName(PASTE_NAME)
-                .createForNewPaste()
-                .driverTitleCorrespondsToPasteName();
-        Assert.assertTrue(pasteNameCorresponds);
+        assertTrue(pastebinPastePage.driverTitleCorrespondsToPasteName());
     }
 
     @Test
     public void testSyntaxHighlighted() {
-        boolean syntaxHighlighted = new PastebinHomePage(driver)
-                .openPage()
-                .newForCode(CODE)
-                .newForSyntaxHighlighting()
-                .newForPasteExpiration()
-                .newForPasteName(PASTE_NAME)
-                .createForNewPaste()
-                .syntaxHighlightedForBash();
-        Assert.assertTrue(syntaxHighlighted);
+        assertTrue(pastebinPastePage.syntaxHighlightedForBash());
     }
 
     @Test
     public void testCodeCorresponds() {
-        boolean codeCorresponds = new PastebinHomePage(driver)
-                .openPage()
-                .newForCode(CODE)
-                .newForSyntaxHighlighting()
-                .newForPasteExpiration()
-                .newForPasteName(PASTE_NAME)
-                .createForNewPaste()
-                .codeCorrespondsToTheEntered(codeList);
-        Assert.assertTrue(codeCorresponds);
+        assertTrue(pastebinPastePage.codeCorrespondsToTheEntered(codeList));
     }
 }

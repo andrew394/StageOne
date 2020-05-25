@@ -11,7 +11,7 @@ import test.epam.learn.webdriver.bringiton.util.CustomCondition;
 public class PastebinHomePage {
 
     private static final String HOMEPAGE_URL = "https://pastebin.com";
-    private static final int WAIT_TIMEOUT_SECOND = 5;
+    private static final int WAIT_TIMEOUT_SECONDS = 5;
     private WebDriver driver;
 
     @FindBy(id = "paste_code")
@@ -42,17 +42,17 @@ public class PastebinHomePage {
 
     public PastebinHomePage openPage() {
         driver.get(HOMEPAGE_URL);
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECOND)
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(CustomCondition.jQueryAJAXsCompleted());
         return this;
     }
 
-    public PastebinHomePage newForCode(String code) {
+    public PastebinHomePage addCode(String code) {
         newPaste.sendKeys(code);
         return this;
     }
 
-    public PastebinHomePage newForSyntaxHighlighting() {
+    public PastebinHomePage chooseSyntaxHighlighting() {
         selectSyntaxHighlightingButton.click();
         waitForElementVisibilityOf(driver, choiceSyntaxHighlighting);
         choiceSyntaxHighlighting.click();
@@ -60,7 +60,7 @@ public class PastebinHomePage {
         return this;
     }
 
-    public PastebinHomePage newForPasteExpiration()  {
+    public PastebinHomePage choosePasteExpiration()  {
         selectPasteExpirationButton.click();
         waitForElementVisibilityOf(driver, choicePasteExpiration);
         choicePasteExpiration.click();
@@ -68,18 +68,18 @@ public class PastebinHomePage {
         return this;
     }
 
-    public PastebinHomePage newForPasteName(String pasteName) {
+    public PastebinHomePage addPasteName(String pasteName) {
         newPasteName.sendKeys(pasteName);
         return this;
     }
 
-    public PastebinPastePage createForNewPaste() {
+    public PastebinPastePage createNewPaste() {
         createPasteButton.submit();
         return new PastebinPastePage(driver);
     }
 
     private void waitForElementVisibilityOf(WebDriver driver, WebElement element) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECOND)
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 }

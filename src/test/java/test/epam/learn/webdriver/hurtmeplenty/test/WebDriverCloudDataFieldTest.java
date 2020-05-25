@@ -2,12 +2,13 @@ package test.epam.learn.webdriver.hurtmeplenty.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import test.epam.learn.webdriver.hurtmeplenty.page.CloudHomePage;
 import test.epam.learn.webdriver.hurtmeplenty.page.CloudPricingCalculatorPage;
+
+import static org.testng.Assert.assertEquals;
 
 public class WebDriverCloudDataFieldTest {
 
@@ -28,21 +29,21 @@ public class WebDriverCloudDataFieldTest {
         cloudPricingCalculatorPage = new CloudPricingCalculatorPage(driver);
         new CloudHomePage(driver)
                 .openPage()
-                .newForSearchBox(term)
+                .enterTermInTneSearchBox(term)
                 .searchForTerm()
                 .openGoogleCloudCalculatorLink()
-                .newForFrame()
-                .newForNumberOfInstances(number)
-                .newForOperatingSystem()
-                .newForVMClass()
-                .newForInstanceType()
-                .newForAddGPUs()
-                .newForNumberOfGPUs()
-                .newForGPUType()
-                .newForLocalSSD()
-                .newForDatacenterLocation()
-                .newForCommitedUsage()
-                .newForAddToEstimate();
+                .switchFrame()
+                .addNumberOfInstances(number)
+                .chooseOperatingSystem()
+                .chooseVMClass()
+                .chooseInstanceType()
+                .chooseAddGPUs()
+                .chooseNumberOfGPUs()
+                .chooseGPUType()
+                .chooseLocalSSD()
+                .chooseDatacenterLocation()
+                .chooseCommitedUsage()
+                .clickOnAddToEstimate();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -53,31 +54,31 @@ public class WebDriverCloudDataFieldTest {
 
     @Test
     public void testEstimateVMClass()  {
-        Assert.assertEquals(cloudPricingCalculatorPage.findEstimateVMClass(), expectedVMClass);
+        assertEquals(cloudPricingCalculatorPage.getEstimateVMClass(), expectedVMClass);
     }
 
     @Test
     public void testEstimateInstanceType() {
-        Assert.assertEquals(cloudPricingCalculatorPage.findEstimateInstanceType(), expectedInstanceType);
+        assertEquals(cloudPricingCalculatorPage.getEstimateInstanceType(), expectedInstanceType);
     }
 
     @Test
     public void testEstimateRegion() {
-        Assert.assertEquals(cloudPricingCalculatorPage.findEstimateRegion(), expectedRegion);
+        assertEquals(cloudPricingCalculatorPage.getEstimateRegion(), expectedRegion);
     }
 
     @Test
     public void testEstimateLocalSSD() {
-        Assert.assertEquals(cloudPricingCalculatorPage.findEstimateLocalSSD(), expectedLocalSSD);
+        assertEquals(cloudPricingCalculatorPage.getEstimateLocalSSD(), expectedLocalSSD);
     }
 
     @Test
     public void testEstimateCommitmentTerm() {
-        Assert.assertEquals(cloudPricingCalculatorPage.findEstimateCommitmentTerm(), expectedCommitmentTerm);
+        assertEquals(cloudPricingCalculatorPage.getEstimateCommitmentTerm(), expectedCommitmentTerm);
     }
 
     @Test
     public void testTotalEstimatedCost() {
-        Assert.assertEquals(cloudPricingCalculatorPage.findTotalEstimatedCost(), expectedEstimatedCost);
+        assertEquals(cloudPricingCalculatorPage.getTotalEstimatedCost(), expectedEstimatedCost);
     }
 }

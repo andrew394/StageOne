@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPage {
 
-    private static final int WAIT_TIMEOUT_SECOND = 15;
+    private static final int WAIT_TIMEOUT_SECONDS = 15;
     WebDriver driver;
 
     AbstractPage(WebDriver driver) {
@@ -18,7 +18,7 @@ public abstract class AbstractPage {
     }
 
     void waitForElementVisibilityOf(WebElement element) {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECOND)
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOf(element));
     }
 

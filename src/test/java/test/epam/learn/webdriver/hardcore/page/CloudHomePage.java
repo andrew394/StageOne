@@ -20,7 +20,7 @@ public class CloudHomePage extends AbstractPage {
         return this;
     }
 
-    public CloudHomePage newForSearchBox(String term) {
+    public CloudHomePage enterTermInTneSearchBox(String term) {
         waitForElementVisibilityOf(searchBox);
         searchBox.sendKeys(term);
         return this;

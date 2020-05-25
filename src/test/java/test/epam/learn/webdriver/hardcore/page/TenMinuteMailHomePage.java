@@ -26,22 +26,22 @@ public class TenMinuteMailHomePage extends AbstractPage {
         return this;
     }
 
-    public TenMinuteMailHomePage newForChoicePage() {
+    public TenMinuteMailHomePage switchToNewWindowOpened() {
         driver.getWindowHandles().forEach(screen -> driver.switchTo().window(screen));
         return this;
     }
 
-    public TenMinuteMailHomePage newForOpeningMail() {
+    public TenMinuteMailHomePage clickToOpenMail() {
         waitForElementVisibilityOf(openingMailButton);
         clickAsJavascriptExecutor(openingMailButton);
         return this;
     }
 
-    public String findEmailAddress() {
+    public String getEmailAddress() {
         return mailAddress.getAttribute("value");
     }
 
-    public String findTotalEstimatedCostFromMail() {
+    public String getTotalEstimatedCostFromMail() {
         return totalEstimatedCostFromMail.getText();
     }
 }
