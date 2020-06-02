@@ -10,6 +10,7 @@
 
     <modules>
         <module>cleancode</module>
+        <module>taf</module>
     </modules>
 
     <properties>

@@ -1,0 +1,12 @@
+<suite name="TestSuite">
+    <test name="HandlingTest">
+        <classes>
+            <class name="com.epam.gomel.tat.test.YandexDiskLoginTest" />
+            <class name="com.epam.gomel.tat.test.YandexDiskMenuTest" />
+            <class name="com.epam.gomel.tat.test.YandexDiskCreateFolderTest" />
+            <class name="com.epam.gomel.tat.test.YandexDiskCreateTextDocumentTest" />
+            <class name="com.epam.gomel.tat.test.YandexDiskRemovalTextDocumentTest" />
+            <class name="com.epam.gomel.tat.test.YandexDiskEmptyRecycleBinTest" />
+        </classes>
+    </test>
+</suite>
