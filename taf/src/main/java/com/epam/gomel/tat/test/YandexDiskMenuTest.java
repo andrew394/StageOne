@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
+import static com.epam.gomel.tat.page.AbstractPage.LOGIN;
+import static com.epam.gomel.tat.page.AbstractPage.PASSWORD;
 import static org.testng.Assert.assertTrue;
 
 public class YandexDiskMenuTest {
 
-    private static final String LOGIN = "andrew-394";
-    private static final String PASSWORD = "andrew394";
     private WebDriver driver;
     private YandexDiskMenuOfFilesPage yandexDiskMenuOfFilesPage;
 
@@ -36,57 +36,50 @@ public class YandexDiskMenuTest {
 
     @Test
     public void verifyMenuOfFilesTest() {
-        boolean isMenuOfFilesCorrect = yandexDiskMenuOfFilesPage
+       assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfFiles()
-                .isMenuOfFilesEnabled();
-        assertTrue(isMenuOfFilesCorrect);
+                .isMenuOfFilesEnabled());
     }
 
     @Test
     public void verifyMenuOfRecentTest() {
-        boolean isMenuOfRecentCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfRecent()
-                .isMenuOfRecentEnabled();
-        assertTrue(isMenuOfRecentCorrect);
+                .isMenuOfRecentEnabled());
     }
 
     @Test
     public void verifyMenuOfPhotoTest() {
-        boolean isMenuOfPhotoCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfPhoto()
-                .isMenuOfPhotoEnabled();
-        assertTrue(isMenuOfPhotoCorrect);
+                .isMenuOfPhotoEnabled());
     }
 
     @Test
     public void verifyMenuOfSharedTest() {
-        boolean isMenuOfSharedCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfShared()
-                .isMenuOfSharedEnabled();
-        assertTrue(isMenuOfSharedCorrect);
+                .isMenuOfSharedEnabled());
     }
 
     @Test
     public void verifyMenuOfHistoryTest() {
-        boolean isMenuOfHistoryCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfHistory()
-                .isMenuOfHistoryEnabled();
-        assertTrue(isMenuOfHistoryCorrect);
+                .isMenuOfHistoryEnabled());
     }
 
     @Test
     public void verifyMenuOfArchiveTest() {
-        boolean isMenuOfArchiveCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfArchive()
-                .isMenuOfArchiveEnabled();
-        assertTrue(isMenuOfArchiveCorrect);
+                .isMenuOfArchiveEnabled());
     }
 
     @Test
     public void verifyMenuOfRecycleBinTest() {
-        boolean isMenuOfRecycleBinCorrect = yandexDiskMenuOfFilesPage
+        assertTrue(yandexDiskMenuOfFilesPage
                 .chooseTheMenuOfRecycleBin()
-                .isMenuOfRecycleBinEnabled();
-        assertTrue(isMenuOfRecycleBinCorrect);
+                .isMenuOfRecycleBinEnabled());
     }
 }

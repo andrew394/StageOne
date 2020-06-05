@@ -37,6 +37,8 @@ public class YandexDiskFolderPage extends AbstractPage {
 
     public YandexDiskTextDocumentPage clickOnCreateTextDocument() {
         waitForElementToBeClickableBy(CREATE_TEXT_DOCUMENT).click();
+        String originalHandle = driver.getWindowHandle();
+        findNewWindowHandle(originalHandle);
         return new YandexDiskTextDocumentPage(driver);
     }
 
@@ -49,7 +51,8 @@ public class YandexDiskFolderPage extends AbstractPage {
         By textDocumentBy = By.xpath(String.format(CHOOSE_CREATED_DOCUMENT, name));
         Actions actions = new Actions(driver);
         actions.doubleClick(waitForElementLocatedBy(textDocumentBy)).build().perform();
-        switchToTab(1);
+        String originalHandle = driver.getWindowHandle();
+        findNewWindowHandle(originalHandle);
         return new YandexDiskTextDocumentReopenPage(driver, name);
     }
 

@@ -19,7 +19,6 @@ public class YandexDiskTextDocumentPage extends AbstractPage {
     }
 
     public YandexDiskTextDocumentPage clickOnDocumentTitleButton() {
-        switchToTab(1);
         driver.switchTo().frame(0);
         isWaitForElementTextToBe(DOCUMENT_SAVE, "Сохранено в Yandex");
         waitForElementLocatedBy(TITLE_BUTTON).click();

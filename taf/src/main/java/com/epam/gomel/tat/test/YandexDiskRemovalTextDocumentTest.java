@@ -9,12 +9,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static com.epam.gomel.tat.page.AbstractPage.LOGIN;
+import static com.epam.gomel.tat.page.AbstractPage.PASSWORD;
 import static org.testng.Assert.assertTrue;
 
 public class YandexDiskRemovalTextDocumentTest {
 
-    private static final String LOGIN = "andrew-394";
-    private static final String PASSWORD = "andrew394";
     private static final String TEXT = "Hello world!";
     private WebDriver driver;
     private YandexDiskMenuOfFilesPage yandexDiskMenuOfFilesPage;

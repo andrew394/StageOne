@@ -8,13 +8,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static com.epam.gomel.tat.page.AbstractPage.LOGIN;
+import static com.epam.gomel.tat.page.AbstractPage.PASSWORD;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class YandexDiskLoginTest {
 
-    private static final String LOGIN = "andrew-394";
-    private static final String PASSWORD = "andrew394";
     private static final String PASSWORD_INCORRECT = "a";
     private WebDriver driver;
     private PassportYandexPage passportYandexPage;
@@ -46,7 +46,7 @@ public class YandexDiskLoginTest {
     }
 
     @Test
-    public void verifyLoginIncorrectTest() {
+    public void verifyIncorrectLoginTest() {
         boolean isLoginCorrect = passportYandexPage
                 .enterPassword(PASSWORD_INCORRECT)
                 .enterTheMenuOfFilesPage()

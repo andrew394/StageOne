@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public abstract class AbstractPage {
 
+    public static final String LOGIN = "andrew-394";
+    public static final String PASSWORD = "andrew394";
     protected static final int WAIT_TIMEOUT_SECONDS = 15;
     protected WebDriver driver;
 
@@ -50,5 +52,17 @@ public abstract class AbstractPage {
     void switchToTab(int tabNumber) {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabNumber));
+    }
+
+    void findNewWindowHandle(String originalHandle) {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        if (tabs.size() > 1) {
+            for (String handle : tabs) {
+                if(!originalHandle.contentEquals(handle)) {
+                    driver.switchTo().window(handle);
+                    break;
+                }
+            }
+        }
     }
 }

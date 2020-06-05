@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
+import static com.epam.gomel.tat.page.AbstractPage.LOGIN;
+import static com.epam.gomel.tat.page.AbstractPage.PASSWORD;
 import static org.testng.Assert.assertTrue;
 
 public class YandexDiskCreateTextDocumentTest {
 
-    private static final String LOGIN = "andrew-394";
-    private static final String PASSWORD = "andrew394";
     private static final String TEXT = "Hello world!";
     private WebDriver driver;
     private YandexDiskMenuOfFilesPage yandexDiskMenuOfFilesPage;
