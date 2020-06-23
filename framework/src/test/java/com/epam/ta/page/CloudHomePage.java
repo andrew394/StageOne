@@ -27,7 +27,7 @@ public class CloudHomePage extends AbstractPage {
         return this;
     }
 
-    public SearchResultPage searchForTerm() {
+    public SearchResultPage submitSearchBoxRequest() {
         searchBox.submit();
         return new SearchResultPage(driver);
     }

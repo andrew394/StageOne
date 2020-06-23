@@ -8,10 +8,10 @@ import org.openqa.selenium.support.FindBy;
 public class CloudPricingCalculatorPage extends AbstractPage {
 
     @FindBy(xpath = "//*[@id='cloud-site']//iframe")
-    private WebElement iframe;
+    private WebElement firstFrame;
 
     @FindBy(id = "myFrame")
-    private WebElement myFrame;
+    private WebElement secondFrame;
 
     @FindBy(id = "input_58")
     private WebElement numberOfInstances;
@@ -23,10 +23,10 @@ public class CloudPricingCalculatorPage extends AbstractPage {
     private WebElement selectedOperatingSystem;
 
     @FindBy(id = "select_value_label_52")
-    private WebElement vMClassButton;
+    private WebElement vmClassButton;
 
     @FindBy(id = "select_option_72")
-    private WebElement selectedVMClass;
+    private WebElement selectedVmClass;
 
     @FindBy(id = "select_value_label_55")
     private WebElement instanceTypeButton;
@@ -35,25 +35,25 @@ public class CloudPricingCalculatorPage extends AbstractPage {
     private WebElement selectedInstanceType;
 
     @FindBy(xpath = "//md-checkbox[@aria-label='Add GPUs']")
-    private WebElement addGPUsBox;
+    private WebElement addGpusBox;
 
     @FindBy(id = "select_value_label_332")
-    private WebElement numberOfGPUsButton;
+    private WebElement numberOfGpusButton;
 
     @FindBy(id = "select_option_339")
-    private WebElement selectedNumberOfGPUs;
+    private WebElement selectedNumberOfGpus;
 
     @FindBy(id = "select_value_label_333")
-    private WebElement GPUTypeButton;
+    private WebElement GpuTypeButton;
 
     @FindBy(id = "select_option_346")
-    private WebElement selectedGPUType;
+    private WebElement selectedGpuType;
 
     @FindBy(id = "select_value_label_169")
-    private WebElement localSSDButton;
+    private WebElement localSsdButton;
 
     @FindBy(id = "select_option_233")
-    private WebElement selectedLocalSSD;
+    private WebElement selectedLocalSsd;
 
     @FindBy(id = "select_value_label_56")
     private WebElement datacenterLocationButton;
@@ -87,7 +87,7 @@ public class CloudPricingCalculatorPage extends AbstractPage {
     }
 
     public CloudPricingCalculatorPage switchFrame() {
-        driver.switchTo().frame(iframe).switchTo().frame(myFrame);
+        driver.switchTo().frame(firstFrame).switchTo().frame(secondFrame);
         return this;
     }
 
@@ -103,8 +103,8 @@ public class CloudPricingCalculatorPage extends AbstractPage {
     }
 
     public CloudPricingCalculatorPage chooseVMClass() {
-        clickAsJavascriptExecutor(vMClassButton);
-        clickAsJavascriptExecutor(selectedVMClass);
+        clickAsJavascriptExecutor(vmClassButton);
+        clickAsJavascriptExecutor(selectedVmClass);
         return this;
     }
 
@@ -115,25 +115,25 @@ public class CloudPricingCalculatorPage extends AbstractPage {
     }
 
     public CloudPricingCalculatorPage chooseAddGPUs() {
-        clickAsJavascriptExecutor(addGPUsBox);
+        clickAsJavascriptExecutor(addGpusBox);
         return this;
     }
 
     public CloudPricingCalculatorPage chooseNumberOfGPUs() {
-        clickAsJavascriptExecutor(numberOfGPUsButton);
-        clickAsJavascriptExecutor(selectedNumberOfGPUs);
+        clickAsJavascriptExecutor(numberOfGpusButton);
+        clickAsJavascriptExecutor(selectedNumberOfGpus);
         return this;
     }
 
     public CloudPricingCalculatorPage chooseGPUType() {
-        clickAsJavascriptExecutor(GPUTypeButton);
-        clickAsJavascriptExecutor(selectedGPUType);
+        clickAsJavascriptExecutor(GpuTypeButton);
+        clickAsJavascriptExecutor(selectedGpuType);
         return this;
     }
 
     public CloudPricingCalculatorPage chooseLocalSSD() {
-        clickAsJavascriptExecutor(localSSDButton);
-        clickAsJavascriptExecutor(selectedLocalSSD);
+        clickAsJavascriptExecutor(localSsdButton);
+        clickAsJavascriptExecutor(selectedLocalSsd);
         return this;
     }
 
@@ -171,7 +171,7 @@ public class CloudPricingCalculatorPage extends AbstractPage {
         return new TenMinuteMailHomePage(driver);
     }
 
-    public CloudPricingCalculatorPage switchToFindFirstWindowOpened() {
+    public CloudPricingCalculatorPage swithToFirstOpenedWindow() {
         driver.getWindowHandles().stream().findFirst().ifPresent(screen -> driver.switchTo().window(screen));
         return this;
     }

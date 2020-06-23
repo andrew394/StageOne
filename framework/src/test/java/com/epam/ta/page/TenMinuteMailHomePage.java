@@ -26,7 +26,7 @@ public class TenMinuteMailHomePage extends AbstractPage {
         return this;
     }
 
-    public TenMinuteMailHomePage switchToNewWindowOpened() {
+    public TenMinuteMailHomePage swithchToNewOpenedWindow() {
         driver.getWindowHandles().forEach(screen -> driver.switchTo().window(screen));
         return this;
     }

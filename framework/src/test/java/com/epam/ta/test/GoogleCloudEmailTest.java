@@ -18,7 +18,7 @@ public class GoogleCloudEmailTest extends CommonConditions {
         new CloudHomePage(driver)
                 .openPage()
                 .enterTermInTneSearchBox(testSearch)
-                .searchForTerm()
+                .submitSearchBoxRequest()
                 .openGoogleCloudCalculatorLink()
                 .switchFrame()
                 .addNumberOfInstances(testEngine)
@@ -36,15 +36,15 @@ public class GoogleCloudEmailTest extends CommonConditions {
                 .openTenMinuteMailHomePage();
         String email = tenMinuteMailHomePage.getEmailAddress();
         cloudPricingCalculatorPage
-                .switchToFindFirstWindowOpened()
+                .swithToFirstOpenedWindow()
                 .switchFrame()
                 .pasteEmailFromTenMinuteMail(email)
                 .clickOnSendEmail()
-                .switchToNewWindowOpened()
+                .swithchToNewOpenedWindow()
                 .clickToOpenMail();
         String totalEstimatedCostFromEmail = tenMinuteMailHomePage.getTotalEstimatedCostFromMail();
         cloudPricingCalculatorPage
-                .switchToFindFirstWindowOpened()
+                .swithToFirstOpenedWindow()
                 .switchFrame()
                 .getTotalEstimatedCost();
         String totalEstimatedCost = cloudPricingCalculatorPage.getTotalEstimatedCost();
