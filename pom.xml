@@ -11,6 +11,7 @@
     <modules>
         <module>cleancode</module>
         <module>taf</module>
+        <module>framework</module>
     </modules>
 
     <properties>
@@ -29,6 +30,16 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.12.1</version>
         </dependency>
     </dependencies>
 
